@@ -1,0 +1,41 @@
+<script src="js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+  function showError(msg) {
+    $('#apiResult').addClass('d-none');
+    $('#apiError').removeClass('d-none');
+    $('#apiErrorMsg').text(msg);
+  }
+  function showOk(texto) {
+    $('#apiError').addClass('d-none');
+    $('#apiResult').removeClass('d-none');
+    $('#apiMensaje').text(texto);
+  }
+
+  $(function () {
+    const TARGET = 'https://s1uplfovq4.execute-api.us-east-1.amazonaws.com/default/example';
+    // Proxy público que añade CORS y devuelve el contenido “en crudo”
+    const PROXIED = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(TARGET);
+
+    $('#btnApi').on('click', function () {
+      $('#apiError').addClass('d-none');
+      $('#apiResult').addClass('d-none');
+
+      $.ajax({
+        url: PROXIED,
+        method: 'GET',
+        success: function (raw) {
+          let data = raw;
+          try { data = JSON.parse(raw); } catch {}
+          const texto = (data && (data.mensaje || data.message)) ?? (typeof data === 'string' ? data : JSON.stringify(data));
+          showOk(texto);
+          console.log('OK AJAX (via proxy):', data);
+        },
+        error: function (xhr, textStatus, errorThrown) {
+          console.error('AJAX ERROR (proxy):', { status: xhr.status, textStatus, errorThrown, responseText: xhr.responseText });
+          showError('No se pudo obtener la respuesta incluso vía proxy.');
+        }
+      });
+    });
+  });
+</script>
