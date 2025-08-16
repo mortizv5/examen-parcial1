@@ -1,6 +1,4 @@
-/* --------------------------
-   Utilidades LocalStorage
----------------------------*/
+
 const LS_KEYS = {
   BG: 'perfil:bgColor',
   FORM: 'perfil:formData'
@@ -22,9 +20,7 @@ function loadFormData() {
   } catch { return null; }
 }
 
-/* ---------------------------------
-   Lógica principal (index.html)
-----------------------------------*/
+
 document.addEventListener('DOMContentLoaded', () => {
   const bodyRoot = document.getElementById('bodyRoot');
   const btnAlerta = document.getElementById('btnAlerta');
@@ -37,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const listaDinamica = document.getElementById('listaDinamica');
   const nuevaMeta = document.getElementById('nuevaMeta');
 
-  // NUEVO: input para el nuevo mensaje de bienvenida
+  
   const nuevoTextoBienvenida = document.getElementById('nuevoTextoBienvenida');
   const nuevoTextoFeedback = document.getElementById('nuevoTextoFeedback');
 
@@ -94,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Efecto visual al hacer clic en el párrafo (sin cambiar el texto)
+  
   if (welcomeText) {
     welcomeText.addEventListener('click', () => {
       welcomeText.style.transform = 'scale(1.03)';
@@ -164,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* -------- Interacciones jQuery (requiere js/jquery.min.js) -------- */
+  
   if (typeof $ !== 'undefined') {
     // Atajo: Enter en "Nueva meta" agrega el ítem usando el botón
     $('#nuevaMeta').on('keydown', function (e) {

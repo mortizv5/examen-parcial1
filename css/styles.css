@@ -9,7 +9,6 @@ body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
 }
 
-/* Header con pseudo-elemento decorativo */
 .header-hero {
   background: linear-gradient(90deg, #111, #333);
   color: #fff;
@@ -24,7 +23,7 @@ body {
   pointer-events: none;
 }
 
-/* Grid propia (además de Bootstrap) */
+
 .profile-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -36,7 +35,7 @@ body {
   }
 }
 
-/* Imagen de perfil con transición */
+
 .profile-img {
   width: 140px;
   height: 140px;
@@ -44,33 +43,33 @@ body {
   transition: transform .25s ease;
 }
 
-/* NUEVO: crece al pasar el mouse */
+
 .profile-img:hover {
   transform: scale(1.07);
 }
 
-/* Botones: pseudo-clase */
+
 .btn:hover {
   transform: translateY(-1px);
 }
 
-/* Inputs: pseudo-clase focus */
+
 .form-control:focus {
   box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
   border-color: var(--brand);
 }
 
-/* Box model personalizado */
+
 .card {
   border-radius: 1rem;
   border: 1px solid rgba(0,0,0,.06);
 }
 
-/* Listas y tablas con estilo */
+
 .table { border-radius: .75rem; overflow: hidden; }
 .list-group-item { border: 1px solid rgba(0,0,0,.05); }
 
-/* Animación de aparición */
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
